@@ -49,17 +49,30 @@
             border-radius: 5px;
         }
         
+        .warning-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        
+        .warning-box h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
         .info-box h3 {
             color: #2980b9;
             margin-bottom: 10px;
         }
         
-        .info-box ol {
+        .info-box ol, .warning-box ul {
             margin-left: 20px;
             color: #34495e;
         }
         
-        .info-box li {
+        .info-box li, .warning-box li {
             margin: 8px 0;
         }
         
@@ -167,6 +180,16 @@
                 <li>Uživaj u rezultatu! 🎉</li>
             </ol>
         </div>
+        
+        <div class="warning-box">
+            <h3>⚠️ Važna napomena o QR kodovima:</h3>
+            <ul style="list-style-type: none; margin-left: 0;">
+                <li>📏 <strong>QR kod limit:</strong> Maksimalno 800 znakova</li>
+                <li>⚡ <strong>Preporuka:</strong> Koristi kratke URL-ove (npr. bit.ly)</li>
+                <li>❌ <strong>Izbjegavaj:</strong> Duge vCard kontakte s puno podataka</li>
+                <li>✅ <strong>Idealno:</strong> URL-ovi, telefoni, kratki tekstovi</li>
+            </ul>
+        </div>
 
         <!-- CODE 128 Test Cases -->
         <div class="test-section code128-section">
@@ -214,9 +237,9 @@
             </div>
             
             <div class="test-item">
-                <h3>Wi-Fi pristup</h3>
-                <p>Wi-Fi konfiguracija:</p>
-                <div class="test-value">WIFI:T:WPA;S:SPAR-Guest;P:password123;;</div>
+                <h3>Kratki URL</h3>
+                <p>Skraćeni link (bit.ly stil):</p>
+                <div class="test-value">https://bit.ly/spar-akcija</div>
             </div>
             
             <div class="test-item">
@@ -232,26 +255,27 @@
             </div>
             
             <div class="test-item">
-                <h3>vCard kontakt</h3>
-                <p>Digitalna vizit karta:</p>
-                <div class="test-value">BEGIN:VCARD
-VERSION:3.0
-N:Kovač;Ivan
-TEL:+38591234567
-EMAIL:ivan.kovac@spar.hr
-END:VCARD</div>
+                <h3>SMS poruka</h3>
+                <p>Predkomponirani SMS:</p>
+                <div class="test-value">SMSTO:+38591234567:Pozdrav iz SPAR-a!</div>
             </div>
             
             <div class="test-item">
                 <h3>Geo lokacija</h3>
-                <p>GPS koordinate:</p>
+                <p>GPS koordinate (Zagreb):</p>
                 <div class="test-value">geo:45.8150,15.9819</div>
             </div>
             
             <div class="test-item">
-                <h3>SMS poruka</h3>
-                <p>Predkomponirani SMS:</p>
-                <div class="test-value">SMSTO:+38591234567:Pozdrav iz SPAR-a!</div>
+                <h3>Wi-Fi pristup</h3>
+                <p>Wi-Fi konfiguracija:</p>
+                <div class="test-value">WIFI:T:WPA;S:SPAR-Guest;P:pass123;;</div>
+            </div>
+            
+            <div class="test-item">
+                <h3>Tekst poruka</h3>
+                <p>Jednostavna tekstualna poruka:</p>
+                <div class="test-value">Dobrodošli u SPAR! Uživajte u kupnji.</div>
             </div>
         </div>
 
@@ -259,9 +283,10 @@ END:VCARD</div>
             <h3>✨ Dodatne mogućnosti:</h3>
             <ul style="list-style-type: none; margin-left: 0;">
                 <li>✅ <strong>CODE 128</strong> - Najbolji za numeričke i alfanumeričke identifikatore</li>
-                <li>✅ <strong>QR Kod</strong> - Može sadržavati više podataka, idealan za URL-ove i kontakte</li>
+                <li>✅ <strong>QR Kod</strong> - Može sadržavati više podataka (max 800 znakova)</li>
                 <li>✅ <strong>Balon prikaz</strong> - Elegantna prezentacija u centru ekrana</li>
                 <li>✅ <strong>Brzo zatvaranje</strong> - Klikni X ili izvan balona</li>
+                <li>⚠️ <strong>QR limit</strong> - Ako tekst prelazi 800 znakova, dobit ćeš grešku</li>
             </ul>
         </div>
 

@@ -93,6 +93,11 @@ function generateCode128(container, text) {
 }
 
 function generateQRCode(container, text) {
+  // Provjeri dužinu teksta (QRCode.js ima limit ~800 znakova)
+  if (text.length > 800) {
+    throw new Error('Tekst je predugačak za QR kod (max 800 znakova). Trenutno: ' + text.length);
+  }
+  
   // Kreiraj div za QR kod
   const qrDiv = document.createElement('div');
   qrDiv.id = 'qrcode-container';
@@ -102,15 +107,20 @@ function generateQRCode(container, text) {
   qrDiv.style.padding = '20px';
   container.appendChild(qrDiv);
 
-  // Generiraj QR kod koristeći QRCode.js
-  new QRCode(qrDiv, {
-    text: text,
-    width: 200,
-    height: 200,
-    colorDark: "#000000",
-    colorLight: "#ffffff",
-    correctLevel: QRCode.CorrectLevel.H
-  });
+  try {
+    // Generiraj QR kod koristeći QRCode.js
+    new QRCode(qrDiv, {
+      text: text,
+      width: 200,
+      height: 200,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  } catch (error) {
+    // Ako QRCode.js baci grešku (npr. code length overflow)
+    throw new Error('QR kod greška: ' + error.message);
+  }
 }
 
 function positionBalloon(balloon) {
