@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "CODE 128 & QR Generator",
+  "version": "2.0",
+  "description": "Generiraj CODE 128 barkod ili QR kod iz označenog teksta",
+  "permissions": [
+    "contextMenus",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["jsbarcode.min.js", "qrcode.min.js", "content.js"],
+      "css": ["balloon.css"]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

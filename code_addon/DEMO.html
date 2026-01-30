@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODE 128 & QR Generator - Demo Stranica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+        
+        .info-box {
+            background: #ecf0f1;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        
+        .info-box h3 {
+            color: #2980b9;
+            margin-bottom: 10px;
+        }
+        
+        .info-box ol {
+            margin-left: 20px;
+            color: #34495e;
+        }
+        
+        .info-box li {
+            margin: 8px 0;
+        }
+        
+        .test-section {
+            background: #f8f9fa;
+            border: 2px dashed #95a5a6;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+        
+        .test-section h2 {
+            color: #34495e;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .test-section h2::before {
+            content: "📦";
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+        
+        .test-item {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test-item h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .test-value {
+            background: #ffeaa7;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            display: inline-block;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            user-select: all;
+        }
+        
+        .test-value:hover {
+            background: #fdcb6e;
+            transform: scale(1.05);
+        }
+        
+        .test-value::after {
+            content: " 👆";
+            opacity: 0.5;
+        }
+        
+        .code128-section .test-item {
+            border-left-color: #e74c3c;
+        }
+        
+        .qrcode-section .test-item {
+            border-left-color: #27ae60;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #ecf0f1;
+            color: #7f8c8d;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+        
+        .success {
+            background: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 CODE 128 & QR Generator</h1>
+        <p class="subtitle">Demo stranica za testiranje Edge addona</p>
+        
+        <div class="info-box">
+            <h3>📋 Upute za korištenje:</h3>
+            <ol>
+                <li>Označi bilo koji <strong>žuti pravokutnik</strong> ispod</li>
+                <li>Klikni <strong>desni klik</strong> na označeni tekst</li>
+                <li>Odaberi <strong>"Generiraj kod"</strong></li>
+                <li>Odaberi <strong>"CODE 128 barkod"</strong> ili <strong>"QR kod"</strong></li>
+                <li>Uživaj u rezultatu! 🎉</li>
+            </ol>
+        </div>
+
+        <!-- CODE 128 Test Cases -->
+        <div class="test-section code128-section">
+            <h2>CODE 128 Barkod - Test Primjeri</h2>
+            
+            <div class="test-item">
+                <h3>SPAR Artikl broj</h3>
+                <p>Tipičan artikl broj iz SPAR sustava:</p>
+                <div class="test-value">4007856234567</div>
+            </div>
+            
+            <div class="test-item">
+                <h3>Invoice broj</h3>
+                <p>Račun broj sa prefiksom:</p>
+                <div class="test-value">INV-2026-00123</div>
+            </div>
+            
+            <div class="test-item">
+                <h3>Tracking broj</h3>
+                <p>DHL tracking broj:</p>
+                <div class="test-value">JJD012345678901234567</div>
+            </div>
+            
+            <div class="test-item">
+                <h3>SKU kod</h3>
+                <p>Stock Keeping Unit:</p>
+                <div class="test-value">SKU-ABC-12345</div>
+            </div>
+            
+            <div class="test-item">
+                <h3>EAN broj</h3>
+                <p>Europski artikl broj:</p>
+                <div class="test-value">3850104220357</div>
+            </div>
+        </div>
+
+        <!-- QR Code Test Cases -->
+        <div class="test-section qrcode-section">
+            <h2>QR Kod - Test Primjeri</h2>
+            
+            <div class="test-item">
+                <h3>Web URL</h3>
+                <p>Link na SPAR Hrvatska:</p>
+                <div class="test-value">https://www.spar.hr</div>
+            </div>
+            
+            <div class="test-item">
+                <h3>Wi-Fi pristup</h3>
+                <p>Wi-Fi konfiguracija:</p>
+                <div class="test-value">WIFI:T:WPA;S:SPAR-Guest;P:password123;;</div>
+            </div>
+            
+            <div class="test-item">
+                <h3>Email kontakt</h3>
+                <p>Email adresa:</p>
+                <div class="test-value">mailto:info@spar.hr</div>
+            </div>
+            
+            <div class="test-item">
+                <h3>Telefonski broj</h3>
+                <p>Tel. link:</p>
+                <div class="test-value">tel:+38512345678</div>
+            </div>
+            
+            <div class="test-item">
+                <h3>vCard kontakt</h3>
+                <p>Digitalna vizit karta:</p>
+                <div class="test-value">BEGIN:VCARD
+VERSION:3.0
+N:Kovač;Ivan
+TEL:+38591234567
+EMAIL:ivan.kovac@spar.hr
+END:VCARD</div>
+            </div>
+            
+            <div class="test-item">
+                <h3>Geo lokacija</h3>
+                <p>GPS koordinate:</p>
+                <div class="test-value">geo:45.8150,15.9819</div>
+            </div>
+            
+            <div class="test-item">
+                <h3>SMS poruka</h3>
+                <p>Predkomponirani SMS:</p>
+                <div class="test-value">SMSTO:+38591234567:Pozdrav iz SPAR-a!</div>
+            </div>
+        </div>
+
+        <div class="info-box" style="background: #d5f4e6; border-color: #27ae60;">
+            <h3>✨ Dodatne mogućnosti:</h3>
+            <ul style="list-style-type: none; margin-left: 0;">
+                <li>✅ <strong>CODE 128</strong> - Najbolji za numeričke i alfanumeričke identifikatore</li>
+                <li>✅ <strong>QR Kod</strong> - Može sadržavati više podataka, idealan za URL-ove i kontakte</li>
+                <li>✅ <strong>Balon prikaz</strong> - Elegantna prezentacija u centru ekrana</li>
+                <li>✅ <strong>Brzo zatvaranje</strong> - Klikni X ili izvan balona</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p><strong>CODE 128 & QR Generator</strong> - Verzija 2.0</p>
+            <div>
+                <span class="badge">Edge Addon</span>
+                <span class="badge success">Open Source</span>
+                <span class="badge">Siječanj 2026</span>
+            </div>
+            <p style="margin-top: 15px;">Kreirao: <strong>Dragan</strong> (SPAR Hrvatska)</p>
+        </div>
+    </div>
+</body>
+</html>
