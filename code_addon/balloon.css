@@ -90,3 +90,60 @@
   display: block;
   margin: 0 auto;
 }
+
+.code128-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.code128-action-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.code128-action-btn:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.code128-action-btn:active {
+  transform: translateY(0);
+}
+
+.code128-notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: white;
+  color: #2c3e50;
+  padding: 15px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  font-weight: 600;
+  z-index: 1000000;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.code128-notification.success {
+  border-left: 4px solid #27ae60;
+}
+
+.code128-notification.error {
+  border-left: 4px solid #e74c3c;
+}
